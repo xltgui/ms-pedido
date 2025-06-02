@@ -30,7 +30,7 @@ public class PedidoController {
     public String criarPedido(@RequestBody Pedido pedido) {
         Pedido pedidoSalvo = pedidoService.salvarPedido(pedido);
         rabbitTemplate.convertAndSend("",routingKey, pedidoSalvo);
-        return "O pedido " + pedido.getDescricao() + " foi criado com sucesso!!";
+        return "O pedido " + pedido.getDescricao() + " foi criado com sucesso!!!";
     }
 
     @GetMapping
